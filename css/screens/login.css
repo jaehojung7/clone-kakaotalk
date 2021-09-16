@@ -1,0 +1,75 @@
+.welcome-header {
+  margin: 90px 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.welcome-header__title {
+  margin-bottom: 40px;
+  font-size: 25px;
+}
+
+.welcome-header__text {
+  width: 55%;
+  font-size: 15px;
+  opacity: 0.5;
+  margin-bottom: 90px;
+}
+/* login input들을 세로로 정렬 flex-direction: column */
+#login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 30px;
+}
+
+#login-form input {
+  padding: 15px 0px;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 18px;
+  
+}
+
+/* not + attr selector([type="]) */
+/* login-form input중에 type="submit"이 아닐 경우만 다음을 적용한다 */
+#login-form input:not([type="submit"]) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: border-color 0.5s ease-in-out;
+}
+
+/* pseudo element */
+#login-form input::placeholder {
+  color: solid black;
+  opacity: 0.5;
+}   
+
+/* state + transition (transition 코드는 login-form(root)에) */
+/* variables.css로 kakao-yellow를 설정해줌 */
+#login-form input:focus {
+  border-color: var(--yellow); 
+  outline: none;
+}   
+
+#login-form input[type="submit"] {
+  padding: 18px;
+  opacity: 0.7;
+  border-radius: 7px;
+}
+/* 강의와는 다르게 hover일 경우에만 노란색으로 바뀌게 설정 */
+#login-form input[type="submit"]:hover {
+  background-color: var(--yellow);
+  cursor: pointer;
+}
+
+/* link a 는 기본적으로 파란색+밑줄이 있기 때문에 
+text-decoration: none으로 밑줄을 없애주고
+color: inherit으로 login-form(parents) 색깔로 지정해준다 */
+#login-form a {
+  text-align: center;
+  text-decoration: none;
+  color:inherit; 
+  opacity: 0.7;
+}

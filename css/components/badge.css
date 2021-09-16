@@ -1,0 +1,12 @@
+/* [child의 position: absolute]는 
+항상 [parents(nav__link)의 position: relative]와 함께 사용 */
+.badge {
+    background-color: tomato;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}

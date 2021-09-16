@@ -1,0 +1,161 @@
+#chatroom-screen {
+  background-color: #abc1d1;
+  height: 300vh;
+}
+
+#chatroom-screen .status-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #abc1d1;
+  z-index: 2;
+}
+
+#chatroom-screen .settings-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #abc1d1;
+  z-index: 1;
+}
+
+
+.main-chat {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chatroom__timestamp {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  padding: 13px;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.message-row {
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.message-row img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.message__person {
+    opacity: 0.7;
+    font-size: 17px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.message__info {
+    display: flex;
+    align-items: flex-end;
+}
+
+.message__bubble {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    margin-right: 5px;
+}
+
+.message__time {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.message-row--sent {
+    justify-content: flex-end;
+}
+
+.message-row--sent .message__bubble {
+    background-color: var(--yellow);
+    border-top-right-radius: 0;
+    border-top-left-radius: 15px;
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.message-row--sent .message__info {
+    flex-direction: row-reverse;
+}
+
+.reply {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 25px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.reply .reply__column:first-child {
+    width: 10%
+}
+
+.reply .reply__column:last-child {
+    width: 100%;
+    position: relative;
+}
+
+.reply input {
+    height: 30px;
+    width: 100%;
+    border: var(--main-border);
+    border-radius: 15px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+/* input 위에 이모티콘이랑 전송버튼을 올리기 위해 absolute
+parents인 reply__column:last-child에 position: relative */
+.reply__column:last-child > i,
+.reply__column:last-child button {
+    position: absolute;
+    right: -10px;
+    top: 2px;
+}
+
+.reply__column:last-child > i {
+    right: 40px;
+    top: 10px;
+}
+
+.reply__column:last-child button {
+    background-color: var(--yellow);
+    border-radius: 50%;
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+
+.reply__column button:focus
+.reply__column button:active {
+    outline: none;
+}
+
+.reply i {
+    opacity: 0.5;
+}
+
+.reply__column button > i {
+    opacity: 1;
+}
+

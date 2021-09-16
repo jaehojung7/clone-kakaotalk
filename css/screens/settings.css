@@ -1,0 +1,29 @@
+.settings__item {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings__item i {
+    margin-right: 22px;
+    opacity: 0.8;
+    font-size: 22px;
+}
+
+.settings__item-column .detail {
+    opacity: 0.5;
+}
+
+.settings-list:first-child .settings__item:last-child {
+    border-bottom: none;
+}
+
+.settings-list:last-child .settings__item:first-child {
+    margin-top: 20px;
+    border-top: var(--main-border);
+    padding-top: 35px;    
+}
+
