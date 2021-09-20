@@ -27,7 +27,7 @@ position: fixed; bottom:0; width: 100%; box-sizing:border-box */
   position: absolute;
   left: 20px;
   bottom: 18px;
-  animation: notificationEffect 3s ease-in-out;
+  animation: notificationEffect 4s ease-in-out infinite;
 }
 
 .nav__dot {

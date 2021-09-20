@@ -21,7 +21,6 @@
   z-index: 1;
 }
 
-
 .main-chat {
   margin-top: 100px;
   display: flex;
@@ -40,122 +39,172 @@
 }
 
 .message-row {
-    width: 100%;
-    display: flex;
-    margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 30px;
 }
 
 .message-row img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 15px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
 .message__person {
-    opacity: 0.7;
-    font-size: 17px;
-    margin-bottom: 10px;
-    display: block;
+  opacity: 0.7;
+  font-size: 17px;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .message__info {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 .message__bubble {
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 15px;
-    border-top-left-radius: 0px;
-    margin-right: 5px;
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  margin-right: 5px;
 }
 
 .message__time {
-    font-size: 13px;
-    opacity: 0.6;
+  font-size: 13px;
+  opacity: 0.6;
 }
 
+@keyframes slideLeft {
+  from {
+    transform: translateX(180px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.message-row__content--received {
+  animation: slideLeft 0.7s linear;
+}
+
+@keyframes slideRight {
+    from {
+      transform: translateX(-180px);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
 .message-row--sent {
-    justify-content: flex-end;
+  justify-content: flex-end;
+  animation: slideRight 0.7s linear;
 }
 
 .message-row--sent .message__bubble {
-    background-color: var(--yellow);
-    border-top-right-radius: 0;
-    border-top-left-radius: 15px;
-    margin-left: 5px;
-    margin-right: 0;
+  background-color: var(--yellow);
+  border-top-right-radius: 0;
+  border-top-left-radius: 15px;
+  margin-left: 5px;
+  margin-right: 0;
 }
 
 .message-row--sent .message__info {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .reply {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 25px;
-    align-items: center;
-    box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 25px;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
 }
 
 .reply .reply__column:first-child {
-    width: 10%
+  width: 10%;
 }
 
 .reply .reply__column:last-child {
-    width: 100%;
-    position: relative;
+  width: 90%;
+  position: relative;
 }
 
 .reply input {
-    height: 30px;
-    width: 100%;
-    border: var(--main-border);
-    border-radius: 15px;
-    padding-left: 10px;
-    font-size: 16px;
+  height: 30px;
+  width: 100%;
+  border: var(--main-border);
+  border-radius: 15px;
+  padding-left: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
 }
 
 /* input 위에 이모티콘이랑 전송버튼을 올리기 위해 absolute
 parents인 reply__column:last-child에 position: relative */
 .reply__column:last-child > i,
 .reply__column:last-child button {
-    position: absolute;
-    right: -10px;
-    top: 2px;
+  position: absolute;
+  right: -10px;
+  top: 2px;
 }
 
 .reply__column:last-child > i {
-    right: 40px;
-    top: 10px;
+  right: 40px;
+  top: 10px;
 }
 
 .reply__column:last-child button {
-    background-color: var(--yellow);
-    border-radius: 50%;
-    border: none;
-    height: 30px;
-    width: 30px;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  border: none;
+  height: 30px;
+  width: 30px;
 }
 
-.reply__column button:focus
+.reply__column button:focus,
 .reply__column button:active {
-    outline: none;
+  outline: none;
 }
 
 .reply i {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .reply__column button > i {
-    opacity: 1;
+  opacity: 1;
 }
 
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+  opacity: 0;
+}
+
+.reply:focus-within input {
+  width: 95vw;
+  transform: translateX(-13%) translateY(-80px);
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
+}
